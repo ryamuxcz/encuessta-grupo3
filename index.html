@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuesta de Opinión</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📋 Encuesta de Opinión</h1>
+      <p>Tu opinión nos ayuda a mejorar</p>
+    </header>
+
+    <main>
+      <section class="form-section">
+        <h2>Responde la encuesta</h2>
+        <form id="opinionForm">
+          <input type="hidden" id="editId" value="">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+
+          <label for="opinion">Opinión:</label>
+          <textarea id="opinion" placeholder="Escribe tu opinión aquí..." required></textarea>
+
+          <label for="satisfaccion">Nivel de satisfacción:</label>
+          <select id="satisfaccion" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Muy satisfecho">Muy satisfecho</option>
+            <option value="Satisfecho">Satisfecho</option>
+            <option value="Neutral">Neutral</option>
+            <option value="Insatisfecho">Insatisfecho</option>
+          </select>
+
+          <button type="submit" class="btn" id="submitBtn">Enviar Opinión</button>
+          <button type="button" class="btn btn-cancel" id="cancelBtn" style="display:none;">Cancelar Edición</button>
+        </form>
+      </section>
+      <section class="results-section">
+        <h2>📊 Opiniones Registradas</h2>
+        <div class="table-container">
+          <table id="tablaOpiniones">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Opinión</th>
+                <th>Satisfacción</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Las opiniones se cargarán aquí dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal para ver opinión completa -->
+  <div id="opinionModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Opinión Completa</h2>
+      <div class="modal-body">
+        <p><strong>Nombre:</strong> <span id="modalNombre"></span></p>
+        <p><strong>Opinión:</strong></p>
+        <div id="modalOpinion" class="opinion-text"></div>
+        <p><strong>Satisfacción:</strong> <span id="modalSatisfaccion"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification">¡Opinión agregada correctamente!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
